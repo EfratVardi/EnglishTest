@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>The English School - Test </title>
+		<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all" />
+		<script type="text/javascript" src="./files/jquery.js"></script>
+		<script src="./files/ready.js"></script>
+		<link type="text/css" rel="stylesheet" href="./files/style.css">
+		<link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main id="test_main" role="main">
+			<div id="question" class="alert alert-danger">Please Wait....</div>
+			<form id="answers">
+				<input type="hidden" name="right_answer" value="" />
+				<input type="hidden" name="index" value="0" />
+				<input type="hidden" name="count_success" value="0" />
+				<input type="hidden" name="count_questions" value="0" />
+			</form>
+			<div class="progress">
+				<div class="progress-bar progress-bar-danger" role="progressbar" style="0"></div>
+			</div>
+		</main>
+		<a id="footer" href="./"></a>		
+		<div id="finish_popup_overlay"></div>
+		<div id="finish_popup">
+			<span>
+				<div>You Did it!</div>
+				<div>You answered <b class="answered_right"></b> questions correctly, and your score is <b class="your_score"></b>%.</div>
+				<a href="./" class="btn btn-primary btn-lg"><i class="fa fa-undo" aria-hidden="true"></i> Back to main page</a>
+			</span>
+		</div>
+		<script type="text/javascript" src="./files/modernizr.js"></script>
+		<script type="text/javascript" src="./files/main.js"></script>
+		<script type="text/javascript" src="./files/wp-embed.min.js"></script>
+		
+		<script>
+			var all_texts;
+			var count_questions;
+			var question_precent;
+			var directory;
+			jQuery(document).ready(function(){
+				var number = getParameterByName('number', window.location.href);
+				url = './tests/test-' + number + '.json';
+				jQuery('title').append(number);
+				jQuery.getJSON( url, function( data ) {
+					all_texts = data;
+					count_questions = all_texts.length;
+					question_precent = 100/count_questions;
+					jQuery('[name="count_questions"]').val(count_questions);
+					load_test(0);
+				});
+				
+				jQuery('body').on('click', '[type="radio"]', function(){
+					var val = jQuery(this).val();
+					if(val == jQuery('[name="right_answer"]').val())
+						jQuery('[name="count_success"]').val(parseInt(jQuery('[name="count_success"]').val()) + 1);
+					load_test(jQuery('[name="index"]').val());
+				});
+			});
+			
+			function load_test(index){
+				jQuery('[role="progressbar"]').css('width', (index * question_precent) + '%');
+				if(all_texts[index]){
+					// Getting data
+					var question = all_texts[index].question;
+					var answers = all_texts[index].answers;
+					var right = all_texts[index].right;
+					
+					// Adding new data to the screen
+					jQuery('#question').html(question); // add the question
+					jQuery('[name="right_answer"]').val(right); // set the right answer
+					jQuery('.radio_container').remove(); // remove the prev answers
+					for(var i = 0; i < (answers.length); i++){
+						var ans = answers[i];
+						var val = i+1;
+						jQuery('form').append('<div class="radio_container"><input id="ans_' + i + '" type="radio" name="answers" value="' + val + '"><label for="ans_' + i + '">' + ans + '</label></div>');
+					}
+					var next = parseInt(index) + 1;
+					jQuery('[name="index"]').val(next);
+				}else{
+					var right = parseInt(jQuery('[name="count_success"]').val());
+					var score = right * 100 / count_questions;
+					score = Math.ceil(score);
+					jQuery('.answered_right').html(right + '/' + count_questions);
+					jQuery('.your_score').html(score);
+					jQuery('body').addClass('finish_lesson');
+				}
+			}
+		</script>
+	</body>
+</html>

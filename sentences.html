@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>The English School - Lesson </title>
+		<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
+		<script type="text/javascript" src="./files/jquery.js"></script>
+		<script src="./files/recorder.js"></script>
+		<script src="./files/sentences_functions.js"></script>
+		<script src="./files/ready.js"></script>
+		<link type="text/css" rel="stylesheet" href="./files/style.css">
+		<link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main id="sentences_page" role="main">
+			<div id="sentence_text" class="alert">Please Wait...</div>
+			<img src='' />
+			<div>
+				<button id="play_audio" class="btn btn-primary btn-lg btn-block">Play <i class="fa fa-play" aria-hidden="true"></i></button>
+				<button id="start_record" class="btn btn-primary btn-lg btn-block">Record <i class="fa fa-microphone" aria-hidden="true"></i></button>
+				<button data-index="2" id="next_sentence" class="btn btn-default btn-lg btn-block">Next Sentence <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+				<button data-index="" disabled id="prev_sentence" class="no_animation btn btn-default btn-lg btn-block"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous Sentence</button>
+			</div>
+			<div id="sentences_audio_element_wrap"></div>
+			<div id="record_element_wrap"></div>
+		</main>
+		<a id="footer" href="./"></a>
+		<div id="finish_popup_overlay"></div>
+		<div id="finish_popup">
+			<span>End of Lesson! <br />
+				<a href="javascript:history.back()" class="btn btn-primary btn-lg"><i class="fa fa-undo" aria-hidden="true"></i> Back to video</a>	
+			</span>
+		</div>
+		<script type="text/javascript" src="./files/modernizr.js"></script>
+		<script type="text/javascript" src="./files/main.js"></script>
+		<script type="text/javascript" src="./files/wp-embed.min.js"></script>
+		
+		<script>
+			var all_texts;
+			var directory;
+			jQuery(document).ready(function(){
+				var lesson = getParameterByName('lesson', window.location.href);
+				var grade = getParameterByName('grade', window.location.href);
+				directory = './grades/' + grade + '/' + lesson + '/';
+				jQuery('title').append(lesson);
+				jQuery.getJSON( directory + 'text.json', function( data ) {
+					all_texts = data;
+					load_content(1);
+				});
+				jQuery('#play_audio').on('click', function(){
+					sentences_audio_element.play();
+				});
+				jQuery('#next_sentence, #prev_sentence').on('click', function(){
+					var index = jQuery(this).attr('data-index');
+					load_content(index);
+				});
+			});
+			
+			function get_duration(){
+				return sentences_audio_element.duration;
+			}
+			
+			function load_content(index){
+				var prev = parseInt(index) - 1;
+				if(all_texts[prev]){
+					jQuery('img').attr('src', directory + 'images/' + index + '.bmp');
+					jQuery('#sentences_audio_element_wrap').html('<audio id="sentences_audio_element" controls=""><source src="' + directory + 'sounds/'+ index + '.mp3" type="audio/mp3"></audio>');
+					var next = parseInt(index) + 1;
+					jQuery('#sentence_text').text(all_texts[prev]);			
+					jQuery('#next_sentence').attr('data-index', next);
+					if(prev == 0)
+						jQuery('#prev_sentence').attr('disabled', true);
+					else
+						jQuery('#prev_sentence').attr('data-index', prev).attr('disabled', false);
+						
+				}else{
+					jQuery('body').addClass('finish_lesson');
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>The English School</title>
+		<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
+		<script type="text/javascript" src="./files/jquery.js"></script>
+		<!-- script src="./files/recorder.js"></script -->
+		<script src="./files/ready.js"></script>
+		<link type="text/css" rel="stylesheet" href="./files/style.css">
+		<link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main id="index_main" role="main">
+			<div id="index_main_links_containr"></div>
+			<a href="all_tests.html" id="link_to_tests" class="btn btn-primary btn-lg">Tests <i class="fa fa-pencil" aria-hidden="true"></i></a>	
+		</main>
+		<a id="footer" href="./"></a>
+		<script type="text/javascript" src="./files/modernizr.js"></script>
+		<script type="text/javascript" src="./files/main.js"></script>
+		<script type="text/javascript" src="./files/wp-embed.min.js"></script>
+		
+		<script>
+			jQuery(document).ready(function(){			
+				jQuery.getJSON( './grades/list_grades.json', function( data ) {
+					for(var i = 0; i < data.length; i++){
+						jQuery('#index_main_links_containr').append('<a href="grade.html?grade=' + data[i] + '" class="btn btn-default btn-lg">Level ' + data[i] + '</a>');
+					}
+				});
+			});
+		</script>	
+	</body>
+</html>
