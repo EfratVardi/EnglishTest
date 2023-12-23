@@ -1,0 +1,102 @@
+[
+	{
+		"question" : "________ sleep in tents..",
+		"right" : 4,
+		"answers" : [
+			"I",
+			"like",
+			"Jack",
+			"People"
+		]
+	},
+	{
+		"question" : "Animals ________ sleep in tents",
+		"right" : 1,
+		"answers" : [
+			"don't",
+			"sleep",
+			"me",
+			"live"
+		]
+	},
+{
+		"question" : "He is going to ________ again..",
+		"right" : 3,
+		"answers" : [
+			"go",
+			"like",
+			"sleep",
+			"live"
+		]
+	},
+	{
+		"question" : "I want _______in the warm tent too",
+		"right" : 3,
+		"answers" : [
+			"wake up",
+			"to",
+			"to be",
+			"too"
+		]
+	},
+                {
+		"question" : "Hey, Jack! __________!.",
+		"right" : 4,
+		"answers" : [
+			"go",
+			"boat",
+			"don't",
+			"wake up"
+		]
+	},
+	{
+		"question" : "I want to _________ my legs..",
+		"right" : 3,
+		"answers" : [
+			"live",
+			"wake up",
+			"put",
+			"need"
+                           ]
+	},
+{
+		"question" : "You are ________ big.",
+		"right" : 2,
+		"answers" : [
+			"tent",
+			"too",
+			"to",
+			"sleep"
+		]
+	},
+	{
+		"question" : "It is not _______..",
+		"right" : 4,
+		"answers" : [
+			"like",
+			"warm",
+			"to",
+			"nice"
+		]
+	},
+{
+		"question" : "I'm _______ cold?.",
+		"right" : 4,
+		"answers" : [
+			"am",
+			"sleep",
+			"want",
+			"very"
+		]
+	},
+	{
+		"question" : "What are you _________? ",
+		"right" : 3,
+		"answers" : [
+			"going",
+			"can",
+			"doing",
+			"sleep"
+		]
+	}
+]

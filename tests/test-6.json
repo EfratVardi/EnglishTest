@@ -1,0 +1,102 @@
+[
+	{
+		"question" : "Wow! I'm so ________!..",
+		"right" : 2,
+		"answers" : [
+			"nice",
+			"tired",
+			"Candy",
+			"sleep"
+		]
+	},
+	{
+		"question" : "Take some ______ to eat",
+		"right" : 3,
+		"answers" : [
+			"animals",
+			"wagon",
+			"carrots",
+			"fun"
+		]
+	},
+{
+		"question" : "I work all day and all ________..",
+		"right" : 4,
+		"answers" : [
+			"home",
+			"sad",
+			"day",
+			"night"
+		]
+	},
+	{
+		"question" : "I ______ that you are very sad",
+		"right" : 3,
+		"answers" : [
+			"pull",
+			"dream",
+			"see",
+			"come"
+		]
+	},
+                {
+		"question" : "I see that you want to _______",
+		"right" : 4,
+		"answers" : [
+			"love",
+			"go",
+			"want",
+			"go back"
+		]
+	},
+	{
+		"question" : "Come to my _______..",
+		"right" : 3,
+		"answers" : [
+			"home",
+			"tent",
+			"truck",
+			"place"
+                           ]
+	},
+{
+		"question" : "Let's _______ to the horse farm",
+		"right" : 2,
+		"answers" : [
+			"have",
+			"go",
+			"need",
+			"sleep"
+		]
+	},
+	{
+		"question" : "I'm _______ sleep..",
+		"right" : 4,
+		"answers" : [
+			"like",
+			"live",
+			"need",
+			"going to"
+		]
+	},
+{
+		"question" : "I love ______ home in the farm?.",
+		"right" : 4,
+		"answers" : [
+			"farm",
+			"me",
+			"very",
+			"my"
+		]
+	},
+	{
+		"question" : "There is no _______ like home ",
+		"right" : 3,
+		"answers" : [
+			"boat",
+			"wagon",
+			"place",
+			"tent"
+		]
+	}
+]

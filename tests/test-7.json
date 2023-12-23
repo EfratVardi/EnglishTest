@@ -1,0 +1,102 @@
+[
+	{
+		"question" : "My ________ name is Evans",
+		"right" : 2,
+		"answers" : [
+			"nice",
+			"last",
+			"am",
+			"live"
+		]
+	},
+	{
+		"question" : "There are many _______ in my farm",
+		"right" : 1,
+		"answers" : [
+			"plants",
+			"animals",
+			"carrots",
+			"fun"
+		]
+	},
+{
+		"question" : "I love to ______ about these plants",
+		"right" : 4,
+		"answers" : [
+			"see",
+			"make",
+			"have",
+			"read"
+		]
+	},
+	{
+		"question" : "I know the _______ of the plants ",
+		"right" : 3,
+		"answers" : [
+			"plants",
+			"dreams",
+			"names",
+			"flowers"
+		]
+	},
+                {
+		"question" : "We can make ________ from the flowers",
+		"right" : 2,
+		"answers" : [
+			"leaves",
+			"medicine",
+			"plants",
+			"last"
+		]
+	},
+	{
+		"question" : "One day a man ________ to the farm",
+		"right" : 3,
+		"answers" : [
+			"see",
+			"pulls",
+			"comes",
+			"place"
+                           ]
+	},
+{
+		"question" : "He ________ to see Laura",
+		"right" : 4,
+		"answers" : [
+			"know",
+			"reads",
+			"go",
+			"wants"
+		]
+	},
+	{
+		"question" : "How can I ______ you?..",
+		"right" : 1,
+		"answers" : [
+			"help",
+			"have",
+			"love",
+			"read"
+		]
+	},
+{
+		"question" : "Many people in my town are ______?.",
+		"right" : 2,
+		"answers" : [
+			"love",
+			"sick",
+			"very",
+			"my"
+		]
+	},
+	{
+		"question" : "We don’t _______ a doctor ",
+		"right" : 3,
+		"answers" : [
+			"read",
+			"know",
+			"have",
+			"help"
+		]
+	}
+]

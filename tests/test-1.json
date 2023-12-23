@@ -1,0 +1,114 @@
+[
+	{
+		"question" : "Hello! My name ___________ Ben..",
+		"right" : 3,
+		"answers" : [
+			"are",
+			"name",
+			"is",
+			"my",
+			"Ben"
+		]
+	},
+	{
+		"question" : "I'm _________ sister..",
+		"right" : 4,
+		"answers" : [
+			"is",
+			"are",
+			"Ben",
+			"Ben's",
+			"Jess"
+		]
+	},
+{
+		"question" : "What a ________ day..",
+		"right" : 1,
+		"answers" : [
+			"nice",
+			"is",
+			"are",
+			"day",
+			"food"
+		]
+	},
+	{
+		"question" : "Here's a __________ bottle and food ",
+		"right" : 5,
+		"answers" : [
+			"nice",
+			"day",
+			"bottle",
+			"water bottle",
+			"water"
+		]
+	},
+                {
+		"question" : "Here's some ________ and a __________to write about our trip",
+		"right" : 2,
+		"answers" : [
+			"water, food",
+			"paper, pen",
+			"pen,paper",
+			"bottle, pen",
+			"food, trip"
+		]
+	},
+	{
+		"question" : "to write _______ our trip..",
+		"right" : 4,
+		"answers" : [
+			"pen",
+			"my",
+			"is",
+			"about",
+			"to"
+                           ]
+	},
+{
+		"question" : "But it's ________! Let's go home..",
+		"right" : 2,
+		"answers" : [
+			"name",
+			"late",
+			"is",
+			"here",
+			"pen"
+		]
+	},
+	{
+		"question" : "We can ___________ a letter..",
+		"right" : 1,
+		"answers" : [
+			"write",
+			"late",
+			"here",
+			"water",
+			"are"
+		]
+	},
+{
+		"question" : "Oh! No! ________ can we do?.",
+		"right" : 4,
+		"answers" : [
+			"why",
+			"where",
+			"who",
+			"what",
+			"warm"
+		]
+	},
+	{
+		"question" : "I can see an _________! ?.",
+		"right" : 5,
+		"answers" : [
+			"Ben",
+			"Jess",
+			"island",
+			"food",
+			"pen"
+
+	
+		]
+	}
+]

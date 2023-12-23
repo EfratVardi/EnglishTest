@@ -1,0 +1,102 @@
+[
+	{
+		"question" : "I ________ animals..",
+		"right" : 2,
+		"answers" : [
+			"am",
+			"like",
+			"Jack",
+			"live"
+		]
+	},
+	{
+		"question" : "and they like ______..",
+		"right" : 3,
+		"answers" : [
+			"animals",
+			"I",
+			"me",
+			"live"
+		]
+	},
+{
+		"question" : "I _________ in a tent..",
+		"right" : 1,
+		"answers" : [
+			"live",
+			"like",
+			"am",
+			"good"
+		]
+	},
+	{
+		"question" : "I'm going to ________ in my tent",
+		"right" : 3,
+		"answers" : [
+			"live",
+			"like",
+			"sleep",
+			"tent"
+		]
+	},
+                {
+		"question" : "I hear a ________.",
+		"right" : 4,
+		"answers" : [
+			"island",
+			"boat",
+			"water bottle",
+			"noise"
+		]
+	},
+	{
+		"question" : "I want to _______ into your warm tent..",
+		"right" : 3,
+		"answers" : [
+			"go home",
+			"put",
+			"come",
+			"need"
+                           ]
+	},
+{
+		"question" : "Animals don’t sleep in _______..",
+		"right" : 2,
+		"answers" : [
+			"home",
+			"tents",
+			"boats",
+			"sleep"
+		]
+	},
+	{
+		"question" : "I'm _______ sleep..",
+		"right" : 4,
+		"answers" : [
+			"like",
+			"live",
+			"need",
+			"going to"
+		]
+	},
+{
+		"question" : "I'm _______ cold.",
+		"right" : 4,
+		"answers" : [
+			"am",
+			"sleep",
+			"want",
+			"very"
+		]
+	},
+	{
+		"question" : "I want to put my ________ in your warm tent",
+		"right" : 3,
+		"answers" : [
+			"boat",
+			"can",
+			"head",
+			"tent"
+		]
+	}
+]
