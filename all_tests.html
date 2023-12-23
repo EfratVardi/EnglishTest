@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>The English School - Tests Index</title>
+		<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all" />
+		<script type="text/javascript" src="./files/jquery.js"></script>
+		<script src="./files/ready.js"></script>
+		<link type="text/css" rel="stylesheet" href="./files/style.css">
+		<link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<main id="all_tests_main" role="main">
+			<h1>Choose a test:</h1>
+			<div id="all_tests_container"></div>
+		</main>
+		<a id="footer" href="./"></a>		
+		
+		<script type="text/javascript" src="./files/modernizr.js"></script>
+		<script type="text/javascript" src="./files/main.js"></script>
+		<script type="text/javascript" src="./files/wp-embed.min.js"></script>
+		
+		<script>
+			jQuery(document).ready(function(){
+				var flag = true;
+				for(var i = 1; i < 20 && flag; i++){
+					flag = LinkCheck('./tests/test-' + i + '.json');
+					if(flag)
+						jQuery('#all_tests_container').append('<a href="test.html?number=' + i +'" class="btn btn-danger btn-lg">Test ' + i + ' <i class="fa fa-hand-o-right" aria-hidden="true"></i></a>');
+				}
+			});
+		</script>
+	</body>
+</html>
