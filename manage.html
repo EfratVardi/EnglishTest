@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>The English School</title>
+    <link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
+    <script type="text/javascript" src="./files/jquery.js"></script>
+    <script src="./files/ready.js"></script>
+    <link type="text/css" rel="stylesheet" href="./files/style.css">
+    <link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <main id="index_main" role="main">
+        <h2>Welcome to the management interface!</h1>
+        <input type="file" id="fileInput" accept=".xlsx">
+    </main>
+    <a id="footer" href="./"></a>
+    <script type="text/javascript" src="./files/modernizr.js"></script>
+    <script type="text/javascript" src="./files/main.js"></script>
+    <script type="text/javascript" src="./files/wp-embed.min.js"></script>
+    <script src="./files/xlsx.full.min.js"></script>
+    <script src="./files/FileSaver.min.js"></script>
+
+    <script>
+        fileInput.addEventListener('change', function (e) {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+                    const jsonObject = {};
+                    jsonData.forEach((item) => {
+                        const key = item['key'];
+                        const value = item['value'];
+                        jsonObject[key] = value;
+                    });
+
+                    const jsonString = JSON.stringify(jsonObject, null, 2);
+                    const blob = new Blob([jsonString], { type: 'application/json' });
+                    saveAs(blob, 'dictunary.json');
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        }); 
+    </script>
+</body>
+
+</html>

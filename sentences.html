@@ -66,8 +66,18 @@
 				load_content(index);
 			});
 			jQuery('#sentence_text').on('dblclick', function () {
-				let word = translate(window.getSelection().toString())
-				alert(word)
+				let word = window.getSelection().toString()
+				let translateWord = translate(word);
+				if (translateWord != undefined) {
+					const sentenceElement = document.getElementById('sentence_text');
+					const wrappedWord = wrapWordWithSpan(word);
+
+					const newSentence = sentenceElement.innerHTML.replace(word, wrappedWord);
+					const sourceSentence = sentenceElement.innerHTML
+					sentenceElement.innerHTML = newSentence;
+					showTooltip(translateWord)
+					sentenceElement.innerHTML = sourceSentence;
+				}
 			});
 		});
 
@@ -101,6 +111,29 @@
 			word = word.replace(/\s/g, "");
 			word = word.toLowerCase()
 			return word;
+		}
+
+		function wrapWordWithSpan(word) {
+			return '<span class="word">' + word + '</span>';
+		}
+
+		function showTooltip(translateWord) {
+			const tooltip = document.createElement('div');
+			tooltip.id = 'myTooltip';
+			tooltip.textContent = translateWord
+			document.body.appendChild(tooltip);
+
+			const wordElement = document.querySelector('.word');
+			const wordRect = wordElement.getBoundingClientRect();
+			const wordWidth = wordRect.width;
+			const tooltipLeft = wordRect.left + wordWidth / 2 - tooltip.offsetWidth / 2;
+			const tooltipTop = wordRect.top - tooltip.offsetHeight;
+			tooltip.style.left = `${tooltipLeft}px`;
+			tooltip.style.top = `${tooltipTop}px`;
+			tooltip.style.visibility = 'visible';
+			setTimeout(function () {
+				tooltip.style.visibility = 'hidden';
+			}, 1000);
 		}
 
 	</script>
