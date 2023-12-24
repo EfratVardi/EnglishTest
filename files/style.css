@@ -367,3 +367,22 @@ button.reverse_animate:hover i {
 	padding: 5px;
 	border-radius: 5px;
 }
+
+#indication {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.indication {
+	display: flex;
+	height: 30px;
+}
+
+#img {
+	height: 30px;
+}
+
+#manage_main {
+	max-width: 70%;
+	height: auto;
+}

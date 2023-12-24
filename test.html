@@ -22,11 +22,12 @@
 		</form>
 
 		<div class="progress">
-			<div class="progress-bar progress-bar-info" role="progressbar" style="0"></div>
+			<div class="progress-bar progress-bar-info" role="progressbar"></div>
 		</div>
-		<div style="display: flex;">
+
+		<div class="indication">
 			<img id="img" />
-			<div id="Indication" style="font-size:20px; font-weight: 700;"></div>
+			<div id="indication"></div>
 		</div>
 	</main>
 	<a id="footer" href="./"></a>
@@ -70,22 +71,22 @@
 				}
 				var val = jQuery(this).val();
 				var image = document.getElementById('img')
-				var Indication = document.getElementById('Indication')
+				var indication = document.getElementById('indication')
 
 				if (val == jQuery('[name="right_answer"]').val()) {
 					jQuery('[name="count_success"]').val(parseInt(jQuery('[name="count_success"]').val()) + 1);
-					Indication.innerHTML = 'Correct answer!'
-					Indication.style.color = '#18f766'
-					image.setAttribute("src", './tests/images/smiley-duotone.svg')
+					indication.innerHTML = 'Correct answer!'
+					indication.style.color = '#5cb85c'
+					image.setAttribute("src", './tests/images/smiley-bold.svg')
 				}
 				else {
-					Indication.innerHTML = 'Worng answer!'
-					Indication.style.color = '#f7182e'
-					image.setAttribute("src", './tests/images/smiley-sad-duotone.svg')
+					indication.innerHTML = 'Worng answer!'
+					indication.style.color = '#d9534f'
+					image.setAttribute("src", './tests/images/smiley-sad-bold.svg')
 				}
 				jQuery('[role="progressbar"]').css('width', (jQuery('[name="index"]').val() * question_precent) + '%');
 				setTimeout(function () {
-					Indication.innerHTML = ''
+					indication.innerHTML = ''
 					image.setAttribute("src", '')
 					load_test(jQuery('[name="index"]').val());
 				}, 1500);
