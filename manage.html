@@ -13,9 +13,23 @@
 
 <body>
     <main id="manage_main" role="main">
-        <h2>Welcome to management interface!</h1>
-            <input type="file" id="dictunaryInput" accept=".xlsx">
-            <input type="file" id="testsInput" accept=".xlsx">
+        <h1>Welcome to management interface!</h1>
+        <br>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dictunaryInput" class="form-label">Upload dictunary file</label>
+                    <input type=file class="form-control" id="dictunaryInput" accept=".xlsx">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="testsInput" class="form-label">Upload test file</label>
+                    <input type="number" class="form-control" min="0" id="testName">
+                    <input type=file class="form-control" id="testsInput" accept=".xlsx">
+                </div>
+            </div>
+        </form>
+        <br> <br><br><br><br>
+        <!-- <button onclick="downloadTestsExcel()">downloadTestsExcel</button> -->
     </main>
     <a id="footer" href="./"></a>
     <script type="text/javascript" src="./files/modernizr.js"></script>
@@ -27,10 +41,15 @@
     <script>
         dictunaryInput.addEventListener('change', function (e) {
             const dictunaryInput = document.getElementById('dictunaryInput');
-            convertExcel(dictunaryInput, 'dictunary')
+            convertExcel(dictunaryInput, 'dictunary', 'd')
         });
 
-        function convertExcel(element, fileName) {
+        testsInput.addEventListener('change', function (e) {
+            const dictunaryInput = document.getElementById('testsInput');
+            convertExcel(dictunaryInput, 'test-' + document.getElementById('testName').value, 't')
+        });
+
+        function convertExcel(element, fileName, type) {
             const file = element.files[0];
             if (file) {
                 const reader = new FileReader();
@@ -39,18 +58,42 @@
                     const workbook = XLSX.read(data, { type: 'array' });
                     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
                     const jsonData = XLSX.utils.sheet_to_json(worksheet);
-                    const jsonString = createCompletJson(jsonData)
+                    const jsonString = createJson(jsonData, type)
                     downloadFile(jsonString, fileName)
+                    location.reload()
                 };
                 reader.readAsArrayBuffer(file);
             }
+            return undefined;
+        }
+
+        function createJson(jsonData, type) {
+            switch (type) {
+                case 't':
+                    return createTestsJson(jsonData)
+                    break;
+                case 'd':
+                    return createDictunaryJson(jsonData)
+                    break;
+            }
+        }
+
+        function createTestsJson(jsonData) {
+            const jsonObject = jsonData.map((row) => {
+                return {
+                    question: row.question,
+                    right: row.right,
+                    answers: [row.answer1, row.answer2, row.answer3, row.answer4]
+                };
+            });
+            return JSON.stringify(jsonObject);
         }
 
         function createDictunaryJson(jsonData) {
             const jsonObject = {}
             jsonData.forEach((item) => {
-                const key = item['key'];
-                const value = item['value'];
+                const key = item['english'];
+                const value = item['hebrew'];
                 jsonObject[key] = value;
             });
             return JSON.stringify(jsonObject);
@@ -61,6 +104,37 @@
             saveAs(blob, fileName + '.json');
         }
 
+        function downloadTestsExcel() {
+            var jsonData = []
+            jQuery(document).ready(function () {
+                var fileName = 'test-' + document.getElementById('testName').value
+                url = './tests/' + fileName + '.json';
+                jQuery.getJSON(url, function (data) {
+                    jsonData = data;
+                    const workbook = XLSX.utils.book_new();
+                    const worksheet = XLSX.utils.json_to_sheet([]);
+
+                    const headers = ["question", "right"];
+                    jsonData[0].answers.forEach((answer, answerIndex) => {
+                        headers.push(`answer${answerIndex + 1}`);
+                    });
+
+                    const jsonObject = [];
+                    jsonData.forEach((item) => {
+                        var d = {}
+                        d['question'] = item.question;
+                        d['right'] = item.right;
+                        item.answers.forEach((answer, answerIndex) => {
+                            d[`answer${answerIndex + 1}`] = answer;
+                        });
+                        jsonObject.push(d);
+                    });
+                    const headerRow = XLSX.utils.sheet_add_json(worksheet, jsonObject, { header: headers, origin: 'A1' });
+                    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+                    XLSX.writeFile(workbook, fileName+'.xls');
+                });
+            });
+        }
     </script>
 </body>
 
