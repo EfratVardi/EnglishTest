@@ -131,7 +131,7 @@
                     });
                     const headerRow = XLSX.utils.sheet_add_json(worksheet, jsonObject, { header: headers, origin: 'A1' });
                     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-                    XLSX.writeFile(workbook, fileName+'.xls');
+                    XLSX.writeFile(workbook, fileName+'.xlsx');
                 });
             });
         }
