@@ -1,39 +1,38 @@
 [
 	{
-		"question" : "What _______we do?..",
-		"right" : 4,
-		"answers" : [
+		"question": "What _______we do?..",
+		"right": 4,
+		"answers": [
 			"are",
 			"do",
 			"sad",
 			"can"
-			
 		]
 	},
 	{
-		"question" : "We can write a __________ ..",
-		"right" : 5,
-		"answers" : [
+		"question": "We can write a __________ ..",
+		"right": 3,
+		"answers": [
 			"paper",
 			"pen",
 			"message",
 			"bottle"
-					]
+		]
 	},
-{
-		"question" : "and _______it in the bottle.?.",
-		"right" : 2,
-		"answers" : [
+	{
+		"question": "and _______it in the bottle.?.",
+		"right": 2,
+		"answers": [
 			"here",
 			"put",
 			"can",
 			"home"
 		]
 	},
-{
-		"question" : "We ________to go home! ..",
-		"right" : 2,
-		"answers" : [
+	{
+		"question": "We ________to go home! ..",
+		"right": 2,
+		"answers": [
 			"are",
 			"want",
 			"is",
@@ -41,9 +40,9 @@
 		]
 	},
 	{
-		"question" : "Now let's _________the bottle  ...",
-		"right" : 3,
-		"answers" : [
+		"question": "Now let's _________the bottle  ...",
+		"right": 3,
+		"answers": [
 			"want",
 			"write",
 			"throw",
@@ -51,19 +50,19 @@
 		]
 	},
 	{
-		"question" : "What's __________? ?.",
-		"right" : 5,
-		"answers" : [
+		"question": "What's __________? ?.",
+		"right": 5,
+		"answers": [
 			"this",
 			"do",
 			"sister",
 			"are"
 		]
 	},
-                {
-		"question" : "I want to  _________!...",
-		"right" : 1,
-		"answers" : [
+	{
+		"question": "I want to  _________!...",
+		"right": 1,
+		"answers": [
 			"help",
 			"write",
 			"throw",
@@ -71,19 +70,19 @@
 		]
 	},
 	{
-		"question" : ": Now we are ________! Thank you!",
-		"right" : 4,
-		"answers" : [
+		"question": ": Now we are ________! Thank you!",
+		"right": 4,
+		"answers": [
 			"sad",
 			"but",
 			"here",
 			"happy"
-                           ]
+		]
 	},
-{
-		"question" : "Thank you ___________!..",
-		"right" : 3,
-		"answers" : [
+	{
+		"question": "Thank you ___________!..",
+		"right": 3,
+		"answers": [
 			"so",
 			"many",
 			"so much",
@@ -91,14 +90,13 @@
 		]
 	},
 	{
-		"question" : "We're _________home!..",
-		"right" : 4,
-		"answers" : [
+		"question": "We're _________home!..",
+		"right": 4,
+		"answers": [
 			"writing",
 			"throwing",
 			"putting",
 			"going"
-
 		]
 	}
 ]

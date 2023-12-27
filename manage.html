@@ -18,8 +18,8 @@
         <form>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="dictunaryInput" class="form-label">Upload dictunary file</label>
-                    <input type=file class="form-control" id="dictunaryInput" accept=".xlsx">
+                    <label for="dictionaryInput" class="form-label">Upload dictionary file</label>
+                    <input type=file class="form-control" id="dictionaryInput" accept=".xlsx">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="testsInput" class="form-label">Upload test file</label>
@@ -39,14 +39,14 @@
     <script src="./files/FileSaver.min.js"></script>
 
     <script>
-        dictunaryInput.addEventListener('change', function (e) {
-            const dictunaryInput = document.getElementById('dictunaryInput');
-            convertExcel(dictunaryInput, 'dictunary', 'd')
+        dictionaryInput.addEventListener('change', function (e) {
+            const dictionaryInput = document.getElementById('dictionaryInput');
+            convertExcel(dictionaryInput, 'dictionary', 'd')
         });
 
         testsInput.addEventListener('change', function (e) {
-            const dictunaryInput = document.getElementById('testsInput');
-            convertExcel(dictunaryInput, 'test-' + document.getElementById('testName').value, 't')
+            const dictionaryInput = document.getElementById('testsInput');
+            convertExcel(dictionaryInput, 'test-' + document.getElementById('testName').value, 't')
         });
 
         function convertExcel(element, fileName, type) {
@@ -73,7 +73,7 @@
                     return createTestsJson(jsonData)
                     break;
                 case 'd':
-                    return createDictunaryJson(jsonData)
+                    return createdictionaryJson(jsonData)
                     break;
             }
         }
@@ -89,7 +89,7 @@
             return JSON.stringify(jsonObject);
         }
 
-        function createDictunaryJson(jsonData) {
+        function createdictionaryJson(jsonData) {
             const jsonObject = {}
             jsonData.forEach((item) => {
                 const key = item['english'];
