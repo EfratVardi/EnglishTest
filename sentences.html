@@ -34,8 +34,8 @@
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>End of Lesson! <br />
-			<a href="javascript:history.back()" class="btn btn-primary btn-lg"><i class="fa fa-undo"
-					aria-hidden="true"></i> Back to video</a>
+			<a href="#" class="btn btn-primary btn-lg" id="dynamicLink"><i class="fa fa-hand-o-right"
+					aria-hidden="true"></i> go to test!!</a>
 		</span>
 	</div>
 	<script type="text/javascript" src="./files/modernizr.js"></script>
@@ -51,7 +51,7 @@
 			var grade = getParameterByName('grade', window.location.href);
 			directory = './grades/' + grade + '/' + lesson + '/';
 			jQuery('title').append(lesson);
-			jQuery.getJSON('./dictionary.json', function (data) {
+			jQuery.getJSON('./grades/dictionary.json', function (data) {
 				dictionary = data;
 			});
 			jQuery.getJSON(directory + 'text.json', function (data) {
@@ -99,6 +99,8 @@
 					jQuery('#prev_sentence').attr('data-index', prev).attr('disabled', false);
 
 			} else {
+				var linkElement = document.getElementById("dynamicLink");
+				linkElement.href = "test.html?number=" + getParameterByName('lesson', window.location.href);
 				jQuery('body').addClass('finish_lesson');
 			}
 		}

@@ -23,7 +23,6 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="testsInput" class="form-label">Upload test file</label>
-                    <input type="number" class="form-control" min="0" id="testName">
                     <input type=file class="form-control" id="testsInput" accept=".xlsx">
                 </div>
             </div>
@@ -41,15 +40,15 @@
     <script>
         dictionaryInput.addEventListener('change', function (e) {
             const dictionaryInput = document.getElementById('dictionaryInput');
-            convertExcel(dictionaryInput, 'dictionary', 'd')
+            convertExcel(dictionaryInput, 'd')
         });
 
         testsInput.addEventListener('change', function (e) {
             const dictionaryInput = document.getElementById('testsInput');
-            convertExcel(dictionaryInput, 'test-' + document.getElementById('testName').value, 't')
+            convertExcel(dictionaryInput, 't')
         });
 
-        function convertExcel(element, fileName, type) {
+        function convertExcel(element, type) {
             const file = element.files[0];
             if (file) {
                 const reader = new FileReader();
@@ -59,7 +58,7 @@
                     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
                     const jsonData = XLSX.utils.sheet_to_json(worksheet);
                     const jsonString = createJson(jsonData, type)
-                    downloadFile(jsonString, fileName)
+                    downloadFile(jsonString, file.name.split('.')[0])
                     location.reload()
                 };
                 reader.readAsArrayBuffer(file);
@@ -131,7 +130,7 @@
                     });
                     const headerRow = XLSX.utils.sheet_add_json(worksheet, jsonObject, { header: headers, origin: 'A1' });
                     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-                    XLSX.writeFile(workbook, fileName+'.xlsx');
+                    XLSX.writeFile(workbook, fileName + '.xlsx');
                 });
             });
         }
