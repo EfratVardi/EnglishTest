@@ -34,7 +34,7 @@
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>
-			<i class="compliment_icon"></i>
+			<img id="compliment_icon" />
 			<div class="compliment"></div>
 			<div>You answered <b class="answered_right"></b> questions correctly!
 				<br>
@@ -115,20 +115,19 @@
 			} else {
 				var right = parseInt(jQuery('[name="count_success"]').val());
 				var score = right * question_precent;
+				var image = document.getElementById('compliment_icon')
 				score = Math.ceil(score)
 				if (score >= 90 && score <= 100) {
 					jQuery('.compliment').html("You're the BEST!!");
-					jQuery('.compliment_icon').addClass("fa fa-trophy")
+					image.setAttribute("src", './tests/images/1.gif')
 				}
-				else if (score >= 70 && score < 90)
-				{
+				else if (score >= 70 && score < 90) {
 					jQuery('.compliment').html("You did a good work.");
-					jQuery('.compliment_icon').addClass("fa fa-check-circle")
+					image.setAttribute("src", './tests/images/4.gif')
 				}
-				else
-				{
+				else {
 					jQuery('.compliment').html("Please try again.");
-					jQuery('.compliment_icon').addClass("fa fa-frown-o")
+					image.setAttribute("src", './tests/images/5.gif')
 				}
 				jQuery('.answered_right').html(right + '/' + count_questions);
 				jQuery('.your_score').html(score);
