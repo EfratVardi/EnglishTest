@@ -34,7 +34,7 @@
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>
-			<img id="compliment_icon" />
+			<img id="compliment_icon" style="width: 20%;"/>
 			<div class="compliment"></div>
 			<div>You answered <b class="answered_right"></b> questions correctly!
 				<br>
@@ -123,11 +123,11 @@
 				}
 				else if (score >= 70 && score < 90) {
 					jQuery('.compliment').html("You did a good work.");
-					image.setAttribute("src", './tests/images/4.gif')
+					image.setAttribute("src", './tests/images/2.gif')
 				}
 				else {
 					jQuery('.compliment').html("Please try again.");
-					image.setAttribute("src", './tests/images/5.gif')
+					image.setAttribute("src", './tests/images/3.gif')
 				}
 				jQuery('.answered_right').html(right + '/' + count_questions);
 				jQuery('.your_score').html(score);
