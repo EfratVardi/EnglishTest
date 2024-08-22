@@ -1,32 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>The English School</title>
-		<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
-		<script type="text/javascript" src="./files/jquery.js"></script>
-		<!-- script src="./files/recorder.js"></script -->
-		<script src="./files/ready.js"></script>
-		<link type="text/css" rel="stylesheet" href="./files/style.css">
-		<link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
-	</head>
-	<body>
-		<main id="index_main" role="main">
-			<div id="index_main_links_containr"></div>
-		</main>
-		<a id="footer" href="./"></a>
-		<script type="text/javascript" src="./files/modernizr.js"></script>
-		<script type="text/javascript" src="./files/main.js"></script>
-		<script type="text/javascript" src="./files/wp-embed.min.js"></script>
-		
-		<script>
-			jQuery(document).ready(function(){			
-				jQuery.getJSON( './grades/list_grades.json', function( data ) {
-					for(var i = 0; i < data.length; i++){
-						jQuery('#index_main_links_containr').append('<a href="grade.html?grade=' + data[i] + '" class="btn btn-default btn-lg">Level ' + data[i] + '</a>');
-					}
-				});
-			});
-		</script>	
-	</body>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>The English School</title>
+    <link type="text/css" rel="stylesheet" href="./files/style.css">
+    <link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
+    <script src="files/aes.js"></script>
+</head>
+
+<body onload="onLoad()">
+    <script>
+        var currentDate = new Date().toISOString().split('T')[0];
+        function onLoad() {
+            fileName = 'systemConfig'
+            window.expose.SendExcel("sendRead", fileName);
+            window.expose.ReceiveExcel("receiveRead" + fileName, (data) => {
+                if (data) {
+                    if (currentDate > data?.date) {
+                        window.location.href = 'expired.html';
+                    }
+                    else {
+                        window.location.href = 'main.html';
+                    }
+                }
+            })
+        }
+
+        function decrypt(password) {
+            var secretKey = "011429519";
+            var decrypted = CryptoJS.AES.decrypt(password, secretKey);
+            return decrypted.toString(CryptoJS.enc.Utf8);
+        }
+
+        function check() {
+            var password = decrypt(document.getElementById("password").value)
+            var isJson = isJsonString(password)
+            if (!isJson) {
+                alert("הסיסמא שגויה")
+            }
+            else {
+                password = JSON.parse(password)
+                if (password.date && password.name) {
+                    fileName = "systemConfig"
+                    window.expose.SendExcel("sendWrite", [fileName, password]);
+                    window.expose.ReceiveExcel("receiveWrite" + fileName, (data) => {
+                        window.location.href = 'main.html';
+                    });
+                }
+                else {
+                    alert("הסיסמא שגויה")
+                }
+            }
+        }
+
+        function isJsonString(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <main id="index_main" role="main">
+        <div>הכניסי את הסיסמא</div>
+        <img class="circle" style="height: 40px;" id="lottery-btn" onclick="check()"
+            src="tests/images/smiley-bold.svg" />
+        <input type="text" id="password" class="elipse input">
+    </main>
+
+
+</body>
+
 </html>

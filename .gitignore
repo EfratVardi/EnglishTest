@@ -2,4 +2,5 @@
 *.mp3
 *.bmp
 *.avi
-
+node_modules
+dist

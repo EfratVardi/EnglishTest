@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>The English School - Grade </title>
+		<title>The English School</title>
 		<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
 		<script type="text/javascript" src="./files/jquery.js"></script>
 		<script src="./files/ready.js"></script>
@@ -10,32 +10,23 @@
 		<link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
 	</head>
 	<body>
-		<main id="grade_main" role="main">
-			<h1>Choose a lesson:</h1>
-			<ul id="lessons_ul"></ul>
+		<main id="index_main" role="main">
+			<div id="index_main_links_containr"></div>
 		</main>
 		<a id="footer" href="main.html"></a>
-		
+		<a href="manage.html">ניהול</a>
 		<script type="text/javascript" src="./files/modernizr.js"></script>
 		<script type="text/javascript" src="./files/main.js"></script>
 		<script type="text/javascript" src="./files/wp-embed.min.js"></script>
 		
 		<script>
-			jQuery(document).ready(function(){
-				var grade = getParameterByName('grade', window.location.href);
-				if(grade){
-					jQuery('title').append(grade);
-					var flag = true;
-					var directory;
-					for(var i = 1; i < 50 && flag; i++){
-						lesson = grade + '-' + i;
-						console.log(lesson);
-						flag = LinkCheck('./grades/' + grade + '/' + lesson + '/sounds/1.mp3');
-						if(flag)
-							jQuery('#lessons_ul').append('<li><a class="btn btn-link" href="lesson.html?grade=' + grade + '&lesson=' + lesson + '">' + lesson + '</a></li>');
+			jQuery(document).ready(function(){			
+				jQuery.getJSON( './grades/list_grades.json', function( data ) {
+					for(var i = 0; i < data.length; i++){
+						jQuery('#index_main_links_containr').append('<a href="grade.html?grade=' + data[i] + '" class="btn btn-default btn-lg">Level ' + data[i] + '</a>');
 					}
-				}
+				});
 			});
-		</script>
+		</script>	
 	</body>
 </html>
