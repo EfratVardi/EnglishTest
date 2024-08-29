@@ -387,19 +387,7 @@ button.reverse_animate:hover i {
 	width: 40%;
 }
 
-.circle {
-    background-color: white;
-    opacity: 0.3;
-    border-radius: 50%;
-    height: 100%;
-    padding: 7px;
-    transition: transform 0.3s;
-}
 
-.circle:hover,
-.circle:focus {
-    transform: scale(1.1);
-}
 
 .elipse {
     background-color: red;
@@ -408,7 +396,6 @@ button.reverse_animate:hover i {
     line-height: normal;
     height: 100%;
     border: none;
-    font-family: "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 .elipse:focus {

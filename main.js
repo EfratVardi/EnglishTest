@@ -18,8 +18,6 @@ function createWindow() {
     }
   })
   mainWindow.loadFile('index.html')
-  mainWindow.menuBarVisible = true;
-  mainWindow.fullScreen = true;
   if (!app.isPackaged) {
     mainWindow.webContents.openDevTools();
   }
