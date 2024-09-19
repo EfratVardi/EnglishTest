@@ -4,6 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>The English School - Lesson </title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
 	<script type="text/javascript" src="./files/jquery.js"></script>
 	<script src="./files/recorder.js"></script>
@@ -30,7 +31,7 @@
 		<div id="sentences_audio_element_wrap"></div>
 		<div id="record_element_wrap"></div>
 	</main>
-	<a id="footer" href="main.html"></a>
+	<a id="footer" href="levels.html"></a>
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>End of Lesson! <br />
@@ -71,7 +72,6 @@
 				if (translateWord != undefined) {
 					const sentenceElement = document.getElementById('sentence_text');
 					const wrappedWord = wrapWordWithSpan(word);
-
 					const newSentence = sentenceElement.innerHTML.replace(word, wrappedWord);
 					const sourceSentence = sentenceElement.innerHTML
 					sentenceElement.innerHTML = newSentence;

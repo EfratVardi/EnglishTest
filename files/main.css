@@ -1,13 +1,4 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
-}
-
-body {
-    margin: 0
-}
 
 article,
 aside,
@@ -1398,14 +1389,6 @@ html {
     -webkit-tap-highlight-color: transparent
 }
 
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.428571429;
-    color: #333;
-    background-color: #fff
-}
-
 button,
 input,
 select,
@@ -1949,7 +1932,7 @@ kbd {
     padding: 2px 4px;
     font-size: 90%;
     color: #fff;
-    background-color: #333;
+    background-color: #263f8f;
     border-radius: 3px;
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25)
@@ -1971,7 +1954,7 @@ pre {
     line-height: 1.428571429;
     word-break: break-all;
     word-wrap: break-word;
-    color: #333;
+    color: #263f8f;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px
@@ -3286,7 +3269,7 @@ legend {
     margin-bottom: 20px;
     font-size: 21px;
     line-height: inherit;
-    color: #333;
+    color: 263f8f;
     border: 0;
     border-bottom: 1px solid #e5e5e5
 }
@@ -4206,7 +4189,7 @@ textarea.input-lg {
 .comment-form input.focus[type=submit],
 .comment-form input[type=submit]:focus,
 .comment-form input[type=submit]:hover {
-    color: #333;
+    color: 263f8f;
     text-decoration: none
 }
 
@@ -4236,7 +4219,7 @@ fieldset[disabled] .comment-form input[type=submit] {
 }
 
 .btn-default {
-    color: #333;
+    color: 263f8f;
     background-color: #fff;
     border-color: #ccc
 }
@@ -4247,7 +4230,7 @@ fieldset[disabled] .comment-form input[type=submit] {
 .btn-default:focus,
 .btn-default:hover,
 .open>.btn-default.dropdown-toggle {
-    color: #333;
+    color: 263f8f;
     background-color: #e6e6e6;
     border-color: #adadad
 }
@@ -4282,7 +4265,7 @@ fieldset[disabled] .btn-default:hover {
 
 .btn-default .badge {
     color: #fff;
-    background-color: #333
+    background-color: 263f8f8f
 }
 
 .btn-primary,
@@ -4750,7 +4733,7 @@ tbody.collapse.in {
     clear: both;
     font-weight: 400;
     line-height: 1.428571429;
-    color: #333;
+    color: 263f8f8f;
     white-space: nowrap
 }
 
@@ -6028,7 +6011,7 @@ tbody.collapse.in {
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
-    color: #333;
+    color: 263f8f8f8f8f;
     background-color: transparent
 }
 
@@ -6078,7 +6061,7 @@ tbody.collapse.in {
 
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
-        color: #333;
+        color: 263f8f8f8f8f;
         background-color: transparent
     }
 
@@ -6102,7 +6085,7 @@ tbody.collapse.in {
 }
 
 .navbar-default .navbar-link:hover {
-    color: #333
+    color: 263f8f8f
 }
 
 .navbar-default .btn-link {
@@ -6111,7 +6094,7 @@ tbody.collapse.in {
 
 .navbar-default .btn-link:focus,
 .navbar-default .btn-link:hover {
-    color: #333
+    color: 263f8f8f
 }
 
 .navbar-default .btn-link[disabled]:focus,
@@ -6165,12 +6148,12 @@ fieldset[disabled] .navbar-default .btn-link:hover {
 }
 
 .navbar-inverse .navbar-toggle {
-    border-color: #333
+    border-color: 263f8f8f8f
 }
 
 .navbar-inverse .navbar-toggle:focus,
 .navbar-inverse .navbar-toggle:hover {
-    background-color: #333
+    background-color: 263f8f
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
@@ -6648,7 +6631,7 @@ a.badge:hover {
 .thumbnail .caption,
 .wp-caption .caption {
     padding: 9px;
-    color: #333
+    color: 263f8f
 }
 
 a.active.wp-caption,
@@ -6837,7 +6820,7 @@ a.wp-caption:hover {
 }
 
 .progress-bar-info {
-    background-color: #002a50;
+    background-color: #263f8f;
 }
 
 .progress-striped .progress-bar-info {
@@ -6953,7 +6936,7 @@ a.list-group-item {
 }
 
 a.list-group-item .list-group-item-heading {
-    color: #333
+    color: 263f8f
 }
 
 a.list-group-item:focus,
@@ -7412,7 +7395,7 @@ a.list-group-item-danger.active:hover {
 }
 
 .panel-default>.panel-heading {
-    color: #333;
+    color: 263f8f;
     background-color: #f5f5f5;
     border-color: #ddd
 }
@@ -7423,7 +7406,7 @@ a.list-group-item-danger.active:hover {
 
 .panel-default>.panel-heading .badge {
     color: #f5f5f5;
-    background-color: #333
+    background-color: 263f8f
 }
 
 .panel-default>.panel-footer+.panel-collapse>.panel-body {

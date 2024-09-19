@@ -13,28 +13,33 @@
 	visibility: visible;
 }
 
-html {
-	height: 100%;
-	background: #F04323;
-	font-family: Open Sans Condensed;
-	color: #002a50;
-	overflow: hidden;
-}
-
-html * {
-	color: inherit;
-}
-
 .btn {
 	transition: background .2s;
 }
 
+html,
 body {
-	height: calc(100% - 30px);
-	margin: 15px;
-	background: #fff;
-	border-radius: 30px;
-	text-align: center;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+html {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #c0114c;
+}
+
+body {
+	background-color: white;
+	border-radius: 25px;
+	width: 98%;
+	height: 96%;
+	box-sizing: border-box;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center; /* Center the nested div */
+	color: #263f8f;
 }
 
 html.disabled_body,
@@ -43,37 +48,30 @@ html.disabled_body * {
 	pointer-events: none;
 }
 
-body:after {
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	height: 100%;
-	width: 1px;
-}
-
-main {
-	display: inline-block;
-	vertical-align: middle;
-}
-
 #footer {
 	position: absolute;
-	bottom: 15px;
-	right: 15px;
-	background: url(logo.jpg) center no-repeat;
-	height: 101px;
-	width: 170px;
+	bottom: 5%;
+	right: 2.5%;
+	background-image: url(logo.jpg);
+	height: 100px;
+	width: 300px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 /* Index Page */
 #index_main {
-	max-width: 70%;
-	height: auto;
+	width: 80%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center; /* Center the nested div */
+	margin-left: 10%;
+	margin-top: 3%;
 }
 
 #index_main a {
-	/* border-color: #3D2968; */
-	color: #3D2968;
 	width: 150px;
 	margin: 15px;
 	display: inline-block;
@@ -87,6 +85,10 @@ a#link_to_tests {
 	margin-top: 40px;
 	border-color: #e84534;
 	background: #fff;
+}
+
+#password_form {
+	display: flex;
 }
 
 /* Single Grade */
@@ -136,7 +138,7 @@ a#link_to_tests {
 
 #lesson_main video {
 	width: 79%;
-	outline: 1px solid #002a50;
+	outline: 1px solid #263f8f;
 	outline-offset: 5px;
 	display: block;
 	margin: 0px auto 20px;
@@ -144,20 +146,20 @@ a#link_to_tests {
 
 .btn-primary {
 	color: #fff;
-	background-color: #002a50;
-	border-color: #2e6da4;
+	background-color: #263f8f;
+	border-color: #263f8f;
 	transition: background .25s;
 }
 
 .btn-primary:hover {
 	color: #fff;
-	background-color: #286090;
-	border-color: #204d74;
+	background-color: #263f8f;
+	border-color: #263f8f;
 }
 
 .btn-primary:focus {
 	color: #fff;
-	background-color: #286090;
+	background-color: #263f8f;
 	border-color: #122b40;
 }
 
@@ -188,7 +190,7 @@ button.reverse_animate:hover i {
 
 #sentences_page img {
 	width: 62%;
-	outline: 1px solid #002a50;
+	outline: 1px solid #263f8f;
 	outline-offset: 5px;
 	vertical-align: middle;
 	margin-top: 7px;
@@ -261,7 +263,7 @@ button.reverse_animate:hover i {
 	border-radius: 23px;
 	padding: 50px 0px;
 	margin: 10px;
-	color: #002a50;
+	color: #263f8f;
 	font-size: 26px;
 	font-weight: bold;
 }
@@ -271,6 +273,16 @@ button.reverse_animate:hover i {
 	visibility: visible;
 	top: 50%;
 }
+
+#myTooltip {
+	position: absolute;
+	visibility: hidden;
+	background-color: #263f8f;
+	color: #fff;
+	padding: 5px;
+	border-radius: 5px;
+}
+
 
 /* single test */
 #test_main {
@@ -339,6 +351,20 @@ button.reverse_animate:hover i {
 	font-size: 24px;
 }
 
+#indication {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.indication {
+	display: flex;
+	height: 30px;
+}
+
+#img {
+	height: 30px;
+}
+
 @keyframes moveArrow {
 	from {
 		transform: none;
@@ -359,55 +385,8 @@ button.reverse_animate:hover i {
 	}
 }
 
-#myTooltip {
-	position: absolute;
-	visibility: hidden;
-	background-color: #002a50;
-	color: #fff;
-	padding: 5px;
-	border-radius: 5px;
-}
-
-#indication {
-	font-size: 20px;
-	font-weight: 700;
-}
-
-.indication {
-	display: flex;
-	height: 30px;
-}
-
-#img {
-	height: 30px;
-}
-
+/*manage page*/
 #manage_main {
 	text-align: left;
 	width: 40%;
-}
-
-
-
-.elipse {
-    background-color: red;
-    opacity: 0.3;
-    border-radius: 11px;
-    line-height: normal;
-    height: 100%;
-    border: none;
-}
-
-.elipse:focus {
-    outline: none;
-}
-
-#password {
-    direction: rtl;
-    font-size: 3vw;
-    color: #e028e5;
-}
-
-input:focus {
-    outline: none;
 }

@@ -4,10 +4,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>The English School</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script type="text/javascript" src="./files/jquery.js"></script>
     <link type="text/css" rel="stylesheet" href="./files/style.css">
     <link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
     <script src="files/aes.js"></script>
+
 </head>
 
 <body>
@@ -19,7 +21,7 @@
                     window.location.href = 'expired.html';
                 }
                 else {
-                    window.location.href = 'main.html';
+                    window.location.href = 'levels.html';
                 }
             })
         });
@@ -31,7 +33,7 @@
         }
 
         function check() {
-            var password = decrypt(document.getElementById("password").value)
+            var password = decrypt(document.getElementById("inputPassword").value)
             var isJson = isJsonString(password)
             if (!isJson) {
                 alert("הסיסמא שגויה")
@@ -42,7 +44,7 @@
                     fileName = "systemConfig"
                     window.expose.SendExcel("sendWrite", [fileName, password]);
                     window.expose.ReceiveExcel("receiveWrite" + fileName, (data) => {
-                        window.location.href = 'main.html';
+                        window.location.href = 'levels.html';
                     });
                 }
                 else {
@@ -61,12 +63,15 @@
         }
     </script>
     <main id="index_main" role="main">
-        <h1>הכניסי את הסיסמא</h1>
-        <div id="start_sentences" class="btn btn-primary btn-lg" onclick="check()"> <i class="fa fa-check"
-                aria-hidden="true"></i></div>
-        <a id="start_sentences" class="btn btn-primary btn-lg" href="sentences.html">Next <i class="fa fa-hand-o-right"
-                aria-hidden="true"></i></a>
-        <input type="text" id="password" class="elipse input">
+    <h4>Welcome</h4>
+    <form class="form-inline" id="password_form">
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Enter a password
+          ">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" onclick="check()"><i class="fa fa-check"
+            aria-hidden="true"></i></button>
+      </form>
     </main>
 
 

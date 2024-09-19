@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>The English School - Grade </title>
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
 		<script type="text/javascript" src="./files/jquery.js"></script>
 		<script src="./files/ready.js"></script>
@@ -14,7 +15,7 @@
 			<h1>Choose a lesson:</h1>
 			<ul id="lessons_ul"></ul>
 		</main>
-		<a id="footer" href="main.html"></a>
+		<a id="footer" href="levels.html"></a>
 		
 		<script type="text/javascript" src="./files/modernizr.js"></script>
 		<script type="text/javascript" src="./files/main.js"></script>
@@ -29,7 +30,6 @@
 					var directory;
 					for(var i = 1; i < 50 && flag; i++){
 						lesson = grade + '-' + i;
-						console.log(lesson);
 						flag = LinkCheck('./grades/' + grade + '/' + lesson + '/sounds/1.mp3');
 						if(flag)
 							jQuery('#lessons_ul').append('<li><a class="btn btn-link" href="lesson.html?grade=' + grade + '&lesson=' + lesson + '">' + lesson + '</a></li>');
