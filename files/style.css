@@ -13,9 +13,6 @@
 	visibility: visible;
 }
 
-.btn {
-	transition: background .2s;
-}
 
 html,
 body {
@@ -127,12 +124,11 @@ a#link_to_tests {
 /* Single Lesson */
 #lesson_main {
 	width: 80%;
-	height: 80%;	
+	height: 80%;
 	text-align: center;
 	justify-content: center;
 	margin-top: 5%;
 }
-
 
 #lesson_main video {
 	width: 60%;
@@ -147,21 +143,20 @@ a#link_to_tests {
 	transition: background .25s;
 }
 
-.btn-primary:hover {
-	color: #fff;
-	background-color: #263f8f;
-	border-color: #263f8f;
+.btn-default {
+	border-color: #263f8f
 }
 
-.btn-primary:focus {
-	color: #fff;
-	background-color: #263f8f;
-	border-color: #122b40;
+.btn:focus {
+	outline: none;
+}
+
+.btn-default:hover {
+	border-color: #263f8f
 }
 
 .btn-block {
-    display: block;
-    width: 100%
+	width: 100%;
 }
 
 #start_sentences {
@@ -182,16 +177,16 @@ button.reverse_animate:hover i {
 	animation-name: moveArrowBack;
 }
 
-/* sentences_page */
-#sentences_page {
+/* sentences_main */
+#sentences_main {
 	width: 80%;
 	height: 80%;
 	margin-left: 10%;
-	margin-top: 2.5%;
+	margin-top: 5%;
 	text-align: justify;
 }
 
-#sentences_page img {
+#sentences_main img {
 	width: 62%;
 	max-height: 95%;
 	vertical-align: middle;
@@ -202,19 +197,19 @@ button.reverse_animate:hover i {
 	width: 100%;
 }
 
-#sentences_page img+div {
+#sentences_main img+div {
 	display: inline-block;
 	vertical-align: top;
 	width: 33%;
 }
 
-#sentences_page img+div button {
+#sentences_main img+div button {
 	margin-bottom: 15px;
 	padding-top: 13px;
 	padding-bottom: 13px;
 }
 
-#sentences_page audio {
+#sentences_main audio {
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
@@ -255,6 +250,7 @@ button.reverse_animate:hover i {
 	visibility: hidden;
 	box-shadow: 0px 0px 8px;
 	transition: opacity .3s, top .5s;
+	text-align: center;
 }
 
 #finish_popup>span {
@@ -283,10 +279,12 @@ button.reverse_animate:hover i {
 	border-radius: 5px;
 }
 
-
 /* single test */
 #test_main {
-	width: 60%;
+	width: 50%;
+	height: 80%;
+	margin-left: 15%;
+	margin-top: 15%;
 }
 
 #question {
