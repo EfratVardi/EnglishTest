@@ -38,7 +38,8 @@ body {
 	box-sizing: border-box;
 	overflow: hidden;
 	justify-content: center;
-	align-items: center; /* Center the nested div */
+	align-items: center;
+	/* Center the nested div */
 	color: #263f8f;
 }
 
@@ -60,24 +61,23 @@ html.disabled_body * {
 	background-position: center;
 }
 
-/* Index Page */
-#index_main {
+/* Lvels Page */
+#levels_main {
 	width: 80%;
 	height: 80%;
-	display: flex;
-	justify-content: center;
-	align-items: center; /* Center the nested div */
-	margin-left: 10%;
-	margin-top: 3%;
+	margin-left: 15%;
+	margin-top: 15%;
 }
 
-#index_main a {
+#levels_main a {
 	width: 150px;
 	margin: 15px;
 	display: inline-block;
 	font-weight: bold;
 	font-size: 24px;
+	color: #263f8f;
 }
+
 
 a#link_to_tests {
 	color: #d43f3a;
@@ -97,19 +97,20 @@ a#link_to_tests {
 	list-style-position: outside;
 	padding: 0px;
 	margin: 0px -15px;
-	/* column-count: 3; */
 	text-align: left;
 	display: block;
 }
 
 #grade_main {
-	text-align: left;
-	width: 40%;
+	width: 60%;
+	height: 80%;
+	margin-left: 15%;
+	margin-top: 15%;
 }
 
 #lessons_ul li {
 	display: inline-block;
-	width: 26%;
+	width: 20%;
 	border-bottom: 1px solid;
 	margin: 0px 15px;
 }
@@ -121,25 +122,20 @@ a#link_to_tests {
 #lessons_ul li:before {
 	content: "\f101";
 	font: normal normal normal 14px/1 FontAwesome;
-
 }
 
 /* Single Lesson */
 #lesson_main {
-	width: 83%;
+	width: 80%;
+	height: 80%;	
+	text-align: center;
+	justify-content: center;
+	margin-top: 5%;
 }
 
-#lesson_main:after {
-	content: '';
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-}
 
 #lesson_main video {
-	width: 79%;
-	outline: 1px solid #263f8f;
-	outline-offset: 5px;
+	width: 60%;
 	display: block;
 	margin: 0px auto 20px;
 }
@@ -163,6 +159,11 @@ a#link_to_tests {
 	border-color: #122b40;
 }
 
+.btn-block {
+    display: block;
+    width: 100%
+}
+
 #start_sentences {
 	display: inline-block;
 }
@@ -182,19 +183,18 @@ button.reverse_animate:hover i {
 }
 
 /* sentences_page */
-
 #sentences_page {
-	width: 70%;
+	width: 80%;
+	height: 80%;
+	margin-left: 10%;
+	margin-top: 2.5%;
 	text-align: justify;
 }
 
 #sentences_page img {
 	width: 62%;
-	outline: 1px solid #263f8f;
-	outline-offset: 5px;
+	max-height: 95%;
 	vertical-align: middle;
-	margin-top: 7px;
-	margin-left: 7px;
 }
 
 #sentences_audio_element_wrap {
