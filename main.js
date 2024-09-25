@@ -17,6 +17,8 @@ function createWindow() {
       preload: __dirname + '/preload.js'
     }
   })
+  mainWindow.setMenu(null);
+  mainWindow.maximize()
   mainWindow.loadFile('index.html')
   if (!app.isPackaged) {
     mainWindow.webContents.openDevTools();
@@ -72,7 +74,7 @@ ipcMain.on("sendRead", (event, args) => {
 });
 
 ipcMain.on("sendWrite", (event, args) => {
-  const fullPath =args[0] + '.json';
+  const fullPath = args[0] + '.json';
   fs.writeFile(fullPath, JSON.stringify(args[1]), err => {
     if (err) {
       console.error(err);

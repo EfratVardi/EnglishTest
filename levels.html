@@ -5,7 +5,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>The English School</title>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
 	<script type="text/javascript" src="./files/jquery.js"></script>
 	<link type="text/css" rel="stylesheet" href="./files/style.css">
 	<script src="./files/ready.js"></script>
@@ -28,11 +27,18 @@
 				jQuery.getJSON('./grades/list_grades.json', function (data2) {
 					for (var i = 0; i < data2.length; i++) {
 						if (data1.levels.includes(data2[i]))
-							jQuery('#index_main_links_containr').append('<a href="grade.html?grade=' + data2[i] + '" class="btn btn-default btn-lg">Level ' + data2[i] + '</a>');
+							jQuery('#index_main_links_containr').append('<a href="grade.html?grade=' + data2[i] + '" class="btn btn-default btn-lg click_sound">Level ' + data2[i] + '</a>');
 					}
 					document.getElementById("name").innerHTML = data1.name;
 				});
 			})
+		});
+
+		document.addEventListener('click', function (event) {
+			if (event.target.classList.contains('click_sound')) {
+				const sound = new Audio('/path-to-your-sound/click-sound.mp3');  // Update with correct path
+				sound.play();  
+			}
 		});
 	</script>
 </body>
