@@ -12,8 +12,8 @@
 	<body>
 		<main id="lesson_main" role="main">
 			<video controls id="lesson_video"></video>
-			<a class="btn btn-primary btn-lg reverse_animate" href="javascript:history.back()"><i class="fa fa-hand-o-left" aria-hidden="true"></i> Back</a>
-			<a id="start_sentences" class="btn btn-primary btn-lg" href="sentences.html">Next <i class="fa fa-hand-o-right" aria-hidden="true"></i></a>
+			<a class="btn btn-primary btn-lg reverse_animate click_sound_href" href="javascript:history.back()"><i class="fa fa-hand-o-left" aria-hidden="true"></i> Back</a>
+			<a id="start_sentences" class="btn btn-primary btn-lg click_sound_href" href="sentences.html">Next <i class="fa fa-hand-o-right" aria-hidden="true"></i></a>
 		</main>
 		<a id="footer" href="levels.html"></a>
 		
@@ -28,8 +28,8 @@
 				if(lesson){
 					jQuery('title').append(lesson);
 					jQuery('video')
-						.attr('poster', './grades/' + grade + '/' + lesson + '/images/1.bmp')
-						.append('<source src="./grades/' + grade + '/' + lesson + '/video.mp4" type="video/mp4">');
+						.attr('poster', './resources/grades/' + grade + '/' + lesson + '/images/1.bmp')
+						.append('<source src="./resources/grades/' + grade + '/' + lesson + '/video.mp4" type="video/mp4">');
 					jQuery('#start_sentences').attr('href', jQuery('#start_sentences').attr('href') + '?grade=' + grade + '&lesson=' + lesson);
 				}
 				lesson_video = document.getElementById("lesson_video");
@@ -40,6 +40,18 @@
 					}, 5000);
 				};
 			});
+
+			document.addEventListener('click', function (event) {
+			if (event.target.classList.contains('click_sound_href')) {
+				event.preventDefault();
+				const sound = new Audio('./1.mp3');
+				sound.play().then(() => {
+					setTimeout(function () {
+						window.location.href = jQuery(event.target).attr('href');
+					}, 100);
+				})
+			}
+		});
 		</script>
 	</body>
 </html>

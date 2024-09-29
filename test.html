@@ -35,13 +35,15 @@
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>
-			<img id="compliment_icon" style="width: 20%;"/>
+			<img id="compliment_icon" style="width: 20%;" />
 			<div class="compliment"></div>
 			<div>You answered <b class="answered_right"></b> questions correctly!
 				<br>
 				Your score is <b class="your_score"></b>%.
 			</div>
-			<a href="levels.html" class="btn btn-primary btn-lg"><i class="fa fa-undo" aria-hidden="true"></i> Back to main
+			<a href="levels.html" class="btn btn-primary btn-lg click_sound_href"><i class="fa fa-undo"
+					aria-hidden="true"></i> Back to
+				main
 				page</a>
 		</span>
 	</div>
@@ -54,9 +56,10 @@
 		var count_questions;
 		var question_precent;
 		var directory;
+		var sound
 		jQuery(document).ready(function () {
 			var number = getParameterByName('number', window.location.href);
-			url = './tests/' + number + '.json';
+			url = './resources/tests/' + number + '.json';
 			jQuery('title').append(number);
 			jQuery.getJSON(url, function (data) {
 				all_texts = data;
@@ -79,12 +82,16 @@
 					jQuery('[name="count_success"]').val(parseInt(jQuery('[name="count_success"]').val()) + 1);
 					indication.innerHTML = 'Correct answer!'
 					indication.style.color = '#5cb85c'
-					image.setAttribute("src", './tests/images/smiley-bold.svg')
+					image.setAttribute("src", './resources/tests/images/smiley-bold.svg')
+					sound = new Audio('./2.mp3');
+					sound.play()
 				}
 				else {
 					indication.innerHTML = 'Wrong answer!'
 					indication.style.color = '#d9534f'
-					image.setAttribute("src", './tests/images/smiley-sad-bold.svg')
+					image.setAttribute("src", './resources/tests/images/smiley-sad-bold.svg')
+					sound = new Audio('./3.mp3');
+					sound.play()
 				}
 				jQuery('[role="progressbar"]').css('width', (jQuery('[name="index"]').val() * question_precent) + '%');
 				setTimeout(function () {
@@ -114,27 +121,41 @@
 				var next = parseInt(index) + 1;
 				jQuery('[name="index"]').val(next);
 			} else {
+				sound = new Audio('./4.mp3');
+				sound.play()
 				var right = parseInt(jQuery('[name="count_success"]').val());
 				var score = right * question_precent;
 				var image = document.getElementById('compliment_icon')
 				score = Math.ceil(score)
 				if (score >= 90 && score <= 100) {
 					jQuery('.compliment').html("You're the BEST!!");
-					image.setAttribute("src", './tests/images/1.gif')
+					image.setAttribute("src", './resources/tests/images/1.gif')
 				}
 				else if (score >= 70 && score < 90) {
 					jQuery('.compliment').html("You did a good work.");
-					image.setAttribute("src", './tests/images/2.gif')
+					image.setAttribute("src", './resources/tests/images/2.gif')
 				}
 				else {
 					jQuery('.compliment').html("Please try again.");
-					image.setAttribute("src", './tests/images/3.gif')
+					image.setAttribute("src", './resources/tests/images/3.gif')
 				}
 				jQuery('.answered_right').html(right + '/' + count_questions);
 				jQuery('.your_score').html(score);
 				jQuery('body').addClass('finish_lesson');
 			}
 		}
+
+		document.addEventListener('click', function (event) {
+			if (event.target.classList.contains('click_sound_href')) {
+				event.preventDefault();
+				const sound = new Audio('./1.mp3');
+				sound.play().then(() => {
+					setTimeout(function () {
+						window.location.href = jQuery(event.target).attr('href');
+					}, 100);
+				})
+			}
+		});
 	</script>
 </body>
 

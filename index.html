@@ -9,15 +9,14 @@
     <link type="text/css" rel="stylesheet" href="./files/style.css">
     <link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
     <script src="files/aes.js"></script>
-
 </head>
 
 <body>
     <script>
         var currentDate = new Date().toISOString().split('T')[0];
         jQuery(document).ready(function () {
-            jQuery.getJSON('./systemConfig.json', function (data) {
-                if (currentDate > data?.date) {
+            jQuery.getJSON('./systemConfig.json', function (data) {     
+                if (currentDate > data.date) {
                     window.location.href = 'expired.html';
                 }
                 else {

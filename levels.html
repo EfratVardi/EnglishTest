@@ -24,20 +24,24 @@
 	<script>
 		jQuery(document).ready(function () {
 			jQuery.getJSON('./systemConfig.json', function (data1) {
-				jQuery.getJSON('./grades/list_grades.json', function (data2) {
+				jQuery.getJSON('./resources/grades/list_grades.json', function (data2) {
 					for (var i = 0; i < data2.length; i++) {
 						if (data1.levels.includes(data2[i]))
-							jQuery('#index_main_links_containr').append('<a href="grade.html?grade=' + data2[i] + '" class="btn btn-default btn-lg click_sound">Level ' + data2[i] + '</a>');
+							jQuery('#index_main_links_containr').append('<a href="grade.html?grade=' + data2[i] + '" class="btn btn-default btn-lg click_sound_href">Level ' + data2[i] + '</a>');
 					}
 					document.getElementById("name").innerHTML = data1.name;
 				});
 			})
 		});
-
 		document.addEventListener('click', function (event) {
-			if (event.target.classList.contains('click_sound')) {
-				const sound = new Audio('/path-to-your-sound/click-sound.mp3');  // Update with correct path
-				sound.play();  
+			if (event.target.classList.contains('click_sound_href')) {
+				event.preventDefault();
+				const sound = new Audio('./1.mp3');
+				sound.play().then(() => {
+					setTimeout(function () {
+						window.location.href = jQuery(event.target).attr('href');
+					}, 100);
+				})
 			}
 		});
 	</script>

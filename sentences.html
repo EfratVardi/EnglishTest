@@ -18,14 +18,15 @@
 		<div id="sentence_text" class="alert">Please Wait...</div>
 		<img src='' />
 		<div>
-			<button id="play_audio" class="btn btn-primary btn-lg btn-block">Play <i class="fa fa-play"
+			<button id="play_audio" class="btn btn-primary btn-lg btn-block click_sound">Play <i class="fa fa-play"
 					aria-hidden="true"></i></button>
-			<button id="start_record" class="btn btn-primary btn-lg btn-block">Record <i class="fa fa-microphone"
-					aria-hidden="true"></i></button>
-			<button data-index="2" id="next_sentence" class=" btn btn-default btn-lg btn-block">Next Sentence <i
-					class="fa fa-arrow-right" aria-hidden="true"></i></button>
-			<button data-index="" disabled id="prev_sentence" class="no_animation btn btn-default btn-lg btn-block"><i
-					class="fa fa-arrow-left" aria-hidden="true"></i> Previous Sentence</button>
+			<button id="start_record" class="btn btn-primary btn-lg btn-block click_sound">Record <i
+					class="fa fa-microphone" aria-hidden="true"></i></button>
+			<button data-index="2" id="next_sentence" class=" btn btn-default btn-lg btn-block click_sound">Next
+				Sentence <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+			<button data-index="" disabled id="prev_sentence"
+				class="no_animation btn btn-default btn-lg btn-block click_sound"><i class="fa fa-arrow-left"
+					aria-hidden="true"></i> Previous Sentence</button>
 		</div>
 		<div id="sentences_audio_element_wrap"></div>
 		<div id="record_element_wrap"></div>
@@ -34,7 +35,7 @@
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>End of Lesson! <br />
-			<a href="#" class="btn btn-primary btn-lg" id="dynamicLink"><i class="fa fa-hand-o-right"
+			<a href="#" class="btn btn-primary btn-lg click_sound_href" id="dynamicLink"><i class="fa fa-hand-o-right"
 					aria-hidden="true"></i> go to test!!</a>
 		</span>
 	</div>
@@ -49,9 +50,9 @@
 		jQuery(document).ready(function () {
 			var lesson = getParameterByName('lesson', window.location.href);
 			var grade = getParameterByName('grade', window.location.href);
-			directory = './grades/' + grade + '/' + lesson + '/';
+			directory = './resources/grades/' + grade + '/' + lesson + '/';
 			jQuery('title').append(lesson);
-			jQuery.getJSON('./grades/dictionary.json', function (data) {
+			jQuery.getJSON('./resources/grades/dictionary.json', function (data) {
 				dictionary = data;
 			});
 			jQuery.getJSON(directory + 'text.json', function (data) {
@@ -136,7 +137,24 @@
 				tooltip.style.visibility = 'hidden';
 			}, 1000);
 		}
+		document.addEventListener('click', function (event) {
+			if (event.target.classList.contains('click_sound')) {
+				const sound = new Audio('./1.mp3');
+				sound.play()		
+			}
+		});
 
+		document.addEventListener('click', function (event) {
+			if (event.target.classList.contains('click_sound_href')) {
+				event.preventDefault();
+				const sound = new Audio('./1.mp3');
+				sound.play().then(() => {
+					setTimeout(function () {
+						window.location.href = jQuery(event.target).attr('href');
+					}, 100);
+				})
+			}
+		});
 	</script>
 </body>
 
