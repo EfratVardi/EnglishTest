@@ -31,7 +31,7 @@
 		<div id="sentences_audio_element_wrap"></div>
 		<div id="record_element_wrap"></div>
 	</main>
-	<a id="footer" href="levels.html"></a>
+	<a id="footer" href="start.html"></a>
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>End of Lesson! <br />
@@ -48,6 +48,8 @@
 		var dictionary;
 		var directory;
 		jQuery(document).ready(function () {
+			const sound = new Audio('./1.mp3');
+			sound.play();
 			var lesson = getParameterByName('lesson', window.location.href);
 			var grade = getParameterByName('grade', window.location.href);
 			directory = './resources/grades/' + grade + '/' + lesson + '/';
@@ -141,18 +143,6 @@
 			if (event.target.classList.contains('click_sound')) {
 				const sound = new Audio('./1.mp3');
 				sound.play()		
-			}
-		});
-
-		document.addEventListener('click', function (event) {
-			if (event.target.classList.contains('click_sound_href')) {
-				event.preventDefault();
-				const sound = new Audio('./1.mp3');
-				sound.play().then(() => {
-					setTimeout(function () {
-						window.location.href = jQuery(event.target).attr('href');
-					}, 100);
-				})
 			}
 		});
 	</script>

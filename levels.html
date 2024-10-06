@@ -16,13 +16,15 @@
 		<h1>Choose a grade:</h1>
 		<div id="index_main_links_containr"></div>
 	</main>
-	<a id="footer" href="levels.html"></a>
+	<a id="footer" href="start.html"></a>
 	<script type="text/javascript" src="./files/modernizr.js"></script>
 	<script type="text/javascript" src="./files/main.js"></script>
 	<script type="text/javascript" src="./files/wp-embed.min.js"></script>
 
 	<script>
 		jQuery(document).ready(function () {
+			const sound = new Audio('./4.mp3');
+			sound.play();
 			jQuery.getJSON('./systemConfig.json', function (data1) {
 				jQuery.getJSON('./resources/grades/list_grades.json', function (data2) {
 					for (var i = 0; i < data2.length; i++) {
@@ -32,17 +34,6 @@
 					document.getElementById("name").innerHTML = data1.name;
 				});
 			})
-		});
-		document.addEventListener('click', function (event) {
-			if (event.target.classList.contains('click_sound_href')) {
-				event.preventDefault();
-				const sound = new Audio('./1.mp3');
-				sound.play().then(() => {
-					setTimeout(function () {
-						window.location.href = jQuery(event.target).attr('href');
-					}, 100);
-				})
-			}
 		});
 	</script>
 </body>

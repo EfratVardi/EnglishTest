@@ -12,15 +12,29 @@
 </head>
 
 <body>
+    <main id="license_main" role="main">
+        <h3>Welcome!</h3>
+        <form class="form-inline" id="password_form">
+            <div class="form-group mx-sm-3 col-md-12">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Enter a password
+          " required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+        </form>
+    </main>
+
     <script>
         var currentDate = new Date().toISOString().split('T')[0];
         jQuery(document).ready(function () {
-            jQuery.getJSON('./systemConfig.json', function (data) {     
-                if (currentDate > data.date) {
-                    window.location.href = 'expired.html';
-                }
-                else {
-                    window.location.href = 'levels.html';
+            jQuery.getJSON('./systemConfig.json', function (data) {
+                if (data?.date) {
+                    if (currentDate > data.date) {
+                        window.location.href = 'expired.html';
+                    }
+                    else {
+                        window.location.href = 'start.html';
+                    }
                 }
             })
         });
@@ -43,7 +57,7 @@
                     fileName = "systemConfig"
                     window.expose.SendExcel("sendWrite", [fileName, password]);
                     window.expose.ReceiveExcel("receiveWrite" + fileName, (data) => {
-                        window.location.href = 'levels.html';
+                        window.location.href = 'start.html';
                     });
                 }
                 else {
@@ -60,19 +74,21 @@
             }
             return true;
         }
-    </script>
-    <main id="index_main" role="main">
-    <h4>Welcome</h4>
-    <form class="form-inline" id="password_form">
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="password" class="form-control" id="inputPassword" placeholder="Enter a password
-          ">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2" onclick="check()"><i class="fa fa-check"
-            aria-hidden="true"></i></button>
-      </form>
-    </main>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('password_form');
 
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity()) {
+                    event.preventDefault();
+                    check();
+                } else {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            });
+        });
+    </script>
 
 </body>
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The English School - Lesson</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="./files/style.css">
+    <script type="text/javascript" src="./files/jquery.js"></script>
+</head>
+
+<body>
+    <main id="start_main" role="main">
+        <img src="./resources/images/startLogo.jpg" class="image-above">
+        <div class="container">
+            <button id="startButton" class="flash-button click_sound_href">Start</button>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function () {
+            window.location.href = 'levels.html';
+        });
+    </script>
+</body>
+
+</html>
