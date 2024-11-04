@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>The English School</title>
+    <title>אינגליש כיף</title>
     <link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all">
     <script type="text/javascript" src="./files/jquery.js"></script>
     <script src="./files/ready.js"></script>
@@ -28,7 +28,10 @@
             </div>
         </form>
     </main>
-    <a id="footer" href="levels.html"></a>
+    <a id="footer"></a>
+    <a class="btn btn-primary btn-lg" id="btnFooter" href="start.html">מעבר לעמוד ראשי</a>
+    <div id="nameFooter">מיועד לשימוש </div>
+
     <script type="text/javascript" src="./files/modernizr.js"></script>
     <script type="text/javascript" src="./files/main.js"></script>
     <script type="text/javascript" src="./files/wp-embed.min.js"></script>
@@ -36,6 +39,9 @@
     <script src="./files/FileSaver.min.js"></script>
 
     <script>
+        const systemConfig = JSON.parse(localStorage.getItem("systemConfig"));
+        document.getElementById("nameFooter").innerHTML = document.getElementById("nameFooter").innerHTML + systemConfig.name + " בלבד";
+
         dictionaryInput.addEventListener('change', function (e) {
             const dictionaryInput = document.getElementById('dictionaryInput');
             convertExcel(dictionaryInput, 'd')

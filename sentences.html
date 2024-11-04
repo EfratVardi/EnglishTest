@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>The English School - Lesson </title>
+	<title>אינגליש כיף - Lesson </title>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link type="text/css" rel="stylesheet" href="./files/style.css">
 	<script type="text/javascript" src="./files/jquery.js"></script>
@@ -31,7 +31,10 @@
 		<div id="sentences_audio_element_wrap"></div>
 		<div id="record_element_wrap"></div>
 	</main>
-	<a id="footer" href="start.html"></a>
+	<a id="footer"></a>
+	<a class="btn btn-primary btn-lg" id="btnFooter" href="start.html">מעבר לעמוד ראשי</a>
+	<div id="nameFooter">מיועד לשימוש </div>
+
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>End of Lesson! <br />
@@ -48,6 +51,8 @@
 		var dictionary;
 		var directory;
 		jQuery(document).ready(function () {
+			const systemConfig = JSON.parse(localStorage.getItem("systemConfig"));
+			document.getElementById("nameFooter").innerHTML = document.getElementById("nameFooter").innerHTML + systemConfig.name + " בלבד";
 			const sound = new Audio('./1.mp3');
 			sound.play();
 			var lesson = getParameterByName('lesson', window.location.href);
@@ -142,7 +147,7 @@
 		document.addEventListener('click', function (event) {
 			if (event.target.classList.contains('click_sound')) {
 				const sound = new Audio('./1.mp3');
-				sound.play()		
+				sound.play()
 			}
 		});
 	</script>

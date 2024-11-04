@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>The English School - Grade </title>
+	<title>אינגליש כיף - Grade </title>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<script type="text/javascript" src="./files/jquery.js"></script>
 	<script src="./files/ready.js"></script>
@@ -16,7 +16,9 @@
 		<h1>Choose a lesson:</h1>
 		<ul id="lessons_ul"></ul>
 	</main>
-	<a id="footer" href="start.html"></a>
+	<a id="footer"></a>
+	<a class="btn btn-primary btn-lg" id="btnFooter" href="start.html">מעבר לעמוד ראשי</a>
+	<div id="nameFooter">מיועד לשימוש </div>
 
 	<script type="text/javascript" src="./files/modernizr.js"></script>
 	<script type="text/javascript" src="./files/main.js"></script>
@@ -24,6 +26,8 @@
 
 	<script>
 		jQuery(document).ready(function () {
+			const systemConfig = JSON.parse(localStorage.getItem("systemConfig"));
+			document.getElementById("nameFooter").innerHTML = document.getElementById("nameFooter").innerHTML + systemConfig.name + " בלבד";
 			const sound = new Audio('./1.mp3');
 			sound.play();
 			var grade = getParameterByName('grade', window.location.href);

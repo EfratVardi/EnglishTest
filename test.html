@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>The English School - Test </title>
+	<title>אינגליש כיף - Test </title>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" id="sage_css-css" href="./files/main.css" type="text/css" media="all" />
 	<script type="text/javascript" src="./files/jquery.js"></script>
@@ -31,7 +31,10 @@
 			<div id="indication"></div>
 		</div>
 	</main>
-	<a id="footer" href="start.html"></a>
+	<a id="footer"></a>
+	<a class="btn btn-primary btn-lg" id="btnFooter" href="start.html">מעבר לעמוד ראשי</a>
+	<div id="nameFooter">מיועד לשימוש </div>
+
 	<div id="finish_popup_overlay"></div>
 	<div id="finish_popup">
 		<span>
@@ -58,6 +61,8 @@
 		var directory;
 		var sound
 		jQuery(document).ready(function () {
+			const systemConfig = JSON.parse(localStorage.getItem("systemConfig"));
+			document.getElementById("nameFooter").innerHTML = document.getElementById("nameFooter").innerHTML + systemConfig.name + " בלבד";
 			sound = new Audio('./1.mp3');
 			sound.play();
 			var number = getParameterByName('number', window.location.href);

@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>The English School</title>
+    <title>אינגליש כיף</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script type="text/javascript" src="./files/jquery.js"></script>
     <link type="text/css" rel="stylesheet" href="./files/style.css">
@@ -28,7 +28,8 @@
         var currentDate = new Date().toISOString().split('T')[0];
         jQuery(document).ready(function () {
             jQuery.getJSON('./systemConfig.json', function (data) {
-                if (data?.date) {
+                if (data) {
+                    localStorage.setItem("systemConfig", JSON.stringify(data));
                     if (currentDate > data.date) {
                         window.location.href = 'expired.html';
                     }

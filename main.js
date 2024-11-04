@@ -17,10 +17,12 @@ function createWindow() {
       preload: __dirname + '/preload.js'
     }
   })
-  mainWindow.setMenu(null);
   mainWindow.maximize()
   mainWindow.loadFile('index.html')
-  if (!app.isPackaged) {
+  if (app.isPackaged) {
+    mainWindow.setMenu(null);
+  }
+  else{
     mainWindow.webContents.openDevTools();
   }
   mainWindow.on('closed', () => {

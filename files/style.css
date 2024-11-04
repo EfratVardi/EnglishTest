@@ -51,9 +51,9 @@ html.disabled_body * {
 
 #footer {
 	position: absolute;
-	bottom: 5%;
+	bottom: 7%;
 	right: 2.5%;
-	background-image: url(../resources/images/logo.jpg);
+	background-image: url(../resources/images/startLogo.jpg);
 	height: 100px;
 	width: 300px;
 	background-size: cover;
@@ -61,6 +61,22 @@ html.disabled_body * {
 	background-position: center;
 }
 
+#btnFooter {
+	bottom: 4%;
+	position: absolute;
+    right: 2.5%;
+    font-size: 1rem;
+    padding: 0.1rem 0.4rem;
+}
+
+#nameFooter{
+	position: absolute;
+	bottom: 3%;
+    font-size: 1rem;
+	left: 2.5%;
+	color: #263f8f;
+
+}
 /* Lvels Page */
 #levels_main {
 	width: 80%;
@@ -181,7 +197,7 @@ button.reverse_animate:hover i {
 	width: 80%;
 	height: 80%;
 	margin-left: 10%;
-	margin-top: 5%;
+	margin-top: 3%;
 	text-align: justify;
 }
 

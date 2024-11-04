@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>The English School - Lesson</title>
+    <title>אינגליש כיף</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="./files/style.css">
     <script type="text/javascript" src="./files/jquery.js"></script>
@@ -16,8 +16,12 @@
             <button id="startButton" class="flash-button click_sound_href">Start</button>
         </div>
     </main>
+    <div id="nameFooter">מיועד לשימוש </div>
 
     <script>
+        const systemConfig = JSON.parse(localStorage.getItem("systemConfig"));
+        document.getElementById("nameFooter").innerHTML = document.getElementById("nameFooter").innerHTML + systemConfig.name+" בלבד";
+
         document.getElementById('startButton').addEventListener('click', function () {
             window.location.href = 'levels.html';
         });
