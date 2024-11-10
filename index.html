@@ -27,7 +27,9 @@
     <script>
         var currentDate = new Date().toISOString().split('T')[0];
         jQuery(document).ready(function () {
-            jQuery.getJSON('./systemConfig.json', function (data) {
+            fileName = "systemConfig"
+            window.expose.Send("sendRead", fileName);
+            window.expose.Receive("receiveRead" + fileName, (data) => {
                 if (data) {
                     localStorage.setItem("systemConfig", JSON.stringify(data));
                     if (currentDate > data.date) {
@@ -56,8 +58,8 @@
                 password = JSON.parse(password)
                 if (password.date && password.name && password.levels) {
                     fileName = "systemConfig"
-                    window.expose.SendExcel("sendWrite", [fileName, password]);
-                    window.expose.ReceiveExcel("receiveWrite" + fileName, (data) => {
+                    window.expose.Send("sendWrite", [fileName, password]);
+                    window.expose.Receive("receiveWrite" + fileName, (data) => {
                         window.location.href = 'start.html';
                     });
                 }
